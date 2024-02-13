@@ -1,4 +1,5 @@
 # Run PowerShell as an administrator and execute the following command
+Write-Host "Validating the network connectivity to the domain controller..."
 Add-WindowsFeature RSAT-AD-PowerShell | Out-Null
 
 # Import the Active Directory module
@@ -6,6 +7,9 @@ Import-Module ActiveDirectory
 
 # Get the domain controller
 $DomainController = Get-ADDomainController -Discover -Service PrimaryDC
+
+# Write the name of the domain controller being used by the pod
+Write-Host "Domain Controller: $($DomainController.HostName)"
 
 # Define the target host and ports
 $targetHost = $DomainController.HostName

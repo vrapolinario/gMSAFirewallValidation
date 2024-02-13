@@ -46,3 +46,7 @@ foreach ($targetPort in $targetUdpPorts) {
         }
     }
 }
+
+# Shows kerberos ticket information
+Write-Host "Kerberos ticket information:"
+klist.exe

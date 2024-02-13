@@ -10,7 +10,11 @@ The validation is performed using PowerShell scripts that test TCP and UDP conne
 
 ## Usage
 
-1. Run the PowerShell scripts on the Windows pods that need to communicate with the AD DC.
+Run the following PowerShell script on the Windows pods that need to communicate with the AD DC:
+
+```powershell
+kubectl exec <pod> -- powershell 'Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/vrapolinario/gMSAFirewallValidation/main/validation.ps1" -UseBasicParsing).Content'
+```
 
 The scripts will output whether each port is open or not for both TCP and UDP protocols.
 

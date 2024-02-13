@@ -17,6 +17,19 @@ kubectl exec <pod> -- powershell 'Invoke-Expression (Invoke-WebRequest -Uri "htt
 ```
 
 The scripts will output whether each port is open or not for both TCP and UDP protocols.
+This is a sample output of a successful validation:
+
+```powershell
+PS C:\Users\Microsoft> kubectl exec credspec-demo-758774bbfc-f455w -- powershell 'Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/vrapolinario/gMSAFirewallValidation/main/validation.ps1" -UseBasicParsing).Content'
+TCP port 53 is open on DC01.contoso.local.
+TCP port 88 is open on DC01.contoso.local.
+TCP port 139 is open on DC01.contoso.local.
+TCP port 389 is open on DC01.contoso.local.
+TCP port 636 is open on DC01.contoso.local.
+UDP port 53 is open on DC01.contoso.local.
+UDP port 88 is open on DC01.contoso.local.
+UDP port 389 is open on DC01.contoso.local.
+```
 
 ## Note
 

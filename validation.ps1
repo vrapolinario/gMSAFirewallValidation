@@ -1,5 +1,5 @@
 # Run PowerShell as an administrator and execute the following command
-Add-WindowsCapability -Online -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 | Out-Null
+Add-WindowsFeature RSAT-AD-PowerShell | Out-Null
 
 # Import the Active Directory module
 Import-Module ActiveDirectory

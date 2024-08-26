@@ -6,7 +6,7 @@ Add-WindowsFeature RSAT-AD-PowerShell | Out-Null
 Import-Module ActiveDirectory
 
 # Get the domain controller
-$DomainController = Get-ADDomainController -Discover -Service PrimaryDC
+$DomainController = Get-ADDomainController
 
 # Write the name of the domain controller being used by the pod
 Write-Host "Domain Controller: $($DomainController.HostName)"
